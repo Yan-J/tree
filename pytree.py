@@ -3,7 +3,53 @@ import subprocess
 import sys
 
 
+
 # YOUR CODE GOES here
+import os,  string
+
+def printDir(path,layer,file_cnt,dir_cnt):
+    curList = os.listdir(path)
+    cnt = []
+    
+    
+    for i in curList: 
+        curPath = path + i
+        if ( i == curList[-1]):
+            f_name ='`--' + i
+        else:
+            f_name ='|--' + i
+        for l in range(0,layer):
+            f_name = '|   ' + f_name              
+        print(f_name)
+        if (os.path.isdir(curPath)):
+            curPath = curPath + '/'
+            dir_cnt = dir_cnt+1
+            cnt1 = printDir(curPath,layer+1,file_cnt,dir_cnt)
+            file_cnt = cnt1[1]
+            dir_cnt = cnt1[0]
+
+        elif (os.path.isfile(curPath)):
+            file_cnt = file_cnt + 1
+
+
+    cnt.append(dir_cnt)
+    cnt.append(file_cnt)
+
+    return cnt
+
+    
+
+
+if  (len(sys.argv) == 1):
+    path = './'
+elif (len(sys.argv) == 2):
+    path = sys.argv[1]
+
+print(path)
+cnt = printDir(path,0,0,0)
+print(str(cnt[0])+' directories', str(cnt[1])+' files')
+
+
 
 
 if __name__ == '__main__':
