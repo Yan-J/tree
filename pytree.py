@@ -21,7 +21,7 @@ def sort_key(s):
 
 
 def sortList(curList):
-    curList = [item for item in curList if item[0] != ('.' or '_')]
+    curList = [item for item in curList if item[0] != ('.')]
     curList = sorted(curList, key=sort_key)
     return curList
 
