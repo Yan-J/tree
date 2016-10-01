@@ -54,9 +54,9 @@ if __name__ == '__main__':
         path = '.'
     elif (len(sys.argv) == 2):
         path = sys.argv[1]
-        print(path)
-        cnt = printDir(path, 0, 0, '')
-        print()
-        print('%d directories, %d files' % (cnt[0], cnt[1]))
     else:
         print('Invalid arguments.')
+    print(path)
+    cnt = printDir(path, 0, 0, '')
+    print()
+    print('%d directories, %d files' % (cnt[0], cnt[1]))
