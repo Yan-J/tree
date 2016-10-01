@@ -18,7 +18,7 @@ def printName(indent, i, lastElement):
 
 def sort_key(s):
     return re.sub('[^A-Za-z]+', '', s).lower()
-    
+
 
 def sortList(curList):
     curList = [item for item in curList if item[0] != ('.' or '_')]
