@@ -17,6 +17,7 @@ def printName(indent, i, lastElement):
 
 
 def sort_key(s):
+    # forcing travis to kick in so that it regrades with correct tests
     return re.sub('[^A-Za-z]+', '', s).lower()
 
 
